@@ -6,15 +6,17 @@ public class Cliente
 	private String nome;
 	private int cpf;
 	private char genero;
-
-	public Cliente(int ID, String nome, int cpf, char genero)
+	private Contrato contrato;
+	
+	public Cliente(int ID, String nome, int cpf, char genero, Contrato contrato)
 	{
 		this.ID = ID;
 		this.nome = nome;
 		this.cpf = cpf;
 		this.genero = genero;
+		this.contrato = contrato;
 	}
-
+	
 	public int getID() {return ID;}
 
 	public void setID(int ID) {this.ID = ID;}
@@ -30,4 +32,8 @@ public class Cliente
 	public char getGenero() {return genero;}
 
 	public void setGenero(char genero) {this.genero = genero;}
+
+	public Contrato getContrato() {return contrato;}
+
+	public void setContrato(Contrato contrato) {this.contrato = contrato;}
 }
