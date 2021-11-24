@@ -2,50 +2,28 @@ package locadora;
 
 public class Contrato {
 	
-	private Modelo modelo;
+	private Veiculo veiculo;
 	private int dias; //O jeito de pegar/contar os dias pode ser sujeito à mudança
 	private double kM;
 
-	public Contrato(Modelo modelo, int dias, double kM) {
-		this.modelo = modelo;
+	public Contrato(Veiculo veiculo, int dias, double kM) {
+		this.veiculo = veiculo;
 		this.dias = dias;
 		this.kM = kM;
 	}
 	
-	public Modelo getModelo() {
-		return modelo;
-	}
-
-	public void setModelo(Modelo modelo) {
-		this.modelo = modelo;
-	}
-
-	public int getDias() {
-		return dias;
-	}
-
-	public void setDias(int dias) {
-		this.dias = dias;
-	}
-
-	public double getkM() {
-		return kM;
-	}
-
-	public void setkM(double kM) {
-		this.kM = kM;
-	}
+	
 
 	public double valorKM() {
-		return kM * modelo.getTaxaKM();
+		return kM * veiculo.getTaxaKM();
 	}
 	
 	public double custoDias() {
-		return dias * modelo.getTaxaDia();
+		return dias * veiculo.getTaxaDia();
 	}
 	
 	public double custoTotal() {
-		return custoDias() + modelo.getTaxaVeiculo() + valorKM();
+		return custoDias() + veiculo.getTaxaVeiculo() + valorKM();
 	}
 	
 	public String toString() {
