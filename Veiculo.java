@@ -56,8 +56,7 @@ public class Veiculo{
 		this.modelo = modelo;
 	}
 	
-	
-	
-	
-	
+	public String toString() {
+		return String.format("Modelo: %s%nPlaca: %s%nTaxa fixa do Veículo: %.2f%nTaxa diária: %.2f%nTaxa por quilômetro: %.2f%n",modelo,placa,taxaVeiculo, taxaDia, taxaKM);
+	}	
 }
