@@ -36,4 +36,6 @@ public class Cliente
 	public Contrato getContrato() {return contrato;}
 
 	public void setContrato(Contrato contrato) {this.contrato = contrato;}
+	
+	public String toString() {return String.format("Nome: %s%nID: %d%n", nome, ID);}
 }
