@@ -1,4 +1,4 @@
-package locadora;
+
 
 public class Contrato {
 	
@@ -12,7 +12,16 @@ public class Contrato {
 		this.kM = kM;
 	}
 	
-	
+	public Veiculo getVeiculo() {return veiculo;}
+	public int getDias() {return dias;}
+	public double getkM() {return kM;}
+
+	public void setVeiculo(Veiculo veiculo) {this.veiculo = veiculo;}
+	public void setDias(int dias) {this.dias = dias;}
+	public void setKM(double kM) {this.kM = kM;}
+
+
+
 
 	public double valorKM() {
 		return kM * veiculo.getTaxaKM();

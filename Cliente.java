@@ -1,14 +1,14 @@
-package locadora;
+
 
 public class Cliente 
 {
 	private int ID;
 	private String nome;
-	private int cpf;
+	private float cpf;
 	private char genero;
 	private Contrato contrato;
 	
-	public Cliente(int ID, String nome, int cpf, char genero, Contrato contrato)
+	public Cliente(int ID, String nome, float cpf, char genero, Contrato contrato)
 	{
 		this.ID = ID;
 		this.nome = nome;
@@ -25,9 +25,9 @@ public class Cliente
 
 	public void setNome(String nome) {this.nome = nome;}
 
-	public int getCpf() {return cpf;}
+	public float getCpf() {return cpf;}
 
-	public void setCpf(int cpf) {this.cpf = cpf;}
+	public void setCpf(float cpf) {this.cpf = cpf;}
 
 	public char getGenero() {return genero;}
 

@@ -1,5 +1,6 @@
-import java.util;
+
 import java.util.Scanner;
+
 public class Main {
     public static void main(String [] args)
     {
@@ -9,8 +10,7 @@ public class Main {
 
 
 
-        while(aberto)
-        {
+
             //identificação do cliente
             System.out.println("informe a identificação:");
             int id = entrada.nextInt();
@@ -49,13 +49,20 @@ public class Main {
             System.out.println("informe a quilometragem final:");
             int kM = entrada.nextInt();
 
-
+            
             Veiculo automovel = new Veiculo(taxaVeiculo, taxaKM, taxaDia, placa, modelo);
             Contrato contrato = new Contrato( automovel, dias, kM);
+            Cliente cliente = new Cliente(id, nome, cpf, genero, contrato);
 
-            System.out.println();
+            System.out.println(String.format("Nome: %s", cliente.getNome()));
+            System.out.println(String.format("Modelo: %s", automovel.getModelo()));
+            System.out.println(String.format("Placa: %s", automovel.getPlaca()));
+            System.out.println(String.format("taxa do veículo: %.2f", automovel.getTaxaVeiculo()));
+            System.out.println(String.format("Taxa de quilometragem: %.2f", automovel.getTaxaKM()));
+            System.out.println(String.format("Taxa do dia: %.2f", automovel.getTaxaDia()));
+            System.out.println(String.format("valor total: %.2f", contrato.custoTotal()));
+            
 
             
-        }
     }
 }
