@@ -1,30 +1,52 @@
 
 
 public class Contrato {
-	
 	private Veiculo veiculo;
-	private int dias; //O jeito de pegar/contar os dias pode ser sujeito à mudança
-	private double kM;
-
-	public Contrato(Veiculo veiculo, int dias, double kM) {
+	private int dias; 
+	private double kmInicial;
+	private double kmFinal;
+	
+	public Contrato(Veiculo veiculo, int dias, double kmInicial, double kmFinal) {
 		this.veiculo = veiculo;
 		this.dias = dias;
-		this.kM = kM;
+		this.kmInicial = kmInicial;
+		this.kmFinal = kmFinal;
+	}	
+
+	public Veiculo getVeiculo() {
+		return veiculo;
+	}
+
+	public void setVeiculo(Veiculo veiculo) {
+		this.veiculo = veiculo;
+	}
+
+	public int getDias() {
+		return dias;
+	}
+
+	public void setDias(int dias) {
+		this.dias = dias;
 	}
 	
-	public Veiculo getVeiculo() {return veiculo;}
-	public int getDias() {return dias;}
-	public double getkM() {return kM;}
+	public double getKmInicial() {
+		return kmInicial;
+	}
 
-	public void setVeiculo(Veiculo veiculo) {this.veiculo = veiculo;}
-	public void setDias(int dias) {this.dias = dias;}
-	public void setKM(double kM) {this.kM = kM;}
+	public void setKmInicial(double kmInicial) {
+		this.kmInicial = kmInicial;
+	}
 
+	public double getKmFinal() {
+		return kmFinal;
+	}
 
-
+	public void setKmFinal(double kmFinal) {
+		this.kmFinal = kmFinal;
+	}
 
 	public double valorKM() {
-		return kM * veiculo.getTaxaKM();
+		return (kmFinal- kmInicial) * veiculo.getTaxaKM();
 	}
 	
 	public double custoDias() {
@@ -36,6 +58,6 @@ public class Contrato {
 	}
 	
 	public String toString() {
-		return String.format("O valor a ser pago: %.2f + %.2f = %.2f", custoDias(), valorKM(), custoTotal());
+		return String.format("Valor total a ser pago: %.2f%n", custoTotal());
 	}	
 }
