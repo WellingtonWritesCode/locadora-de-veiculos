@@ -5,11 +5,11 @@ public class Cliente
 {
 	private int ID;
 	private String nome;
-	private float cpf;
+	private String cpf;
 	private char genero;
 	private Contrato contrato;
 	
-	public Cliente(int ID, String nome, float cpf, char genero, Contrato contrato)
+	public Cliente(int ID, String nome, String cpf, char genero, Contrato contrato)
 	{
 		this.ID = ID;
 		this.nome = nome;
@@ -26,9 +26,9 @@ public class Cliente
 
 	public void setNome(String nome) {this.nome = nome;}
 
-	public float getCpf() {return cpf;}
+	public String getCpf() {return cpf;}
 
-	public void setCpf(float cpf) {this.cpf = cpf;}
+	public void setCpf(String cpf) {this.cpf = cpf;}
 
 	public char getGenero() {return genero;}
 

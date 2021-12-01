@@ -1,15 +1,16 @@
 package locadora;
 
-
-public class Veiculo{
+public class Veiculo
+{
 	
 	private double taxaVeiculo;
 	private double taxaKM;
 	private double taxaDia;
 	private String placa;
-	private String modelo;
+	private Modelo modelo;
 	
-	public Veiculo(double taxaVeiculo, double taxaKM, double taxaDia, String placa, String modelo) {
+	public Veiculo(double taxaVeiculo, double taxaKM, double taxaDia, String placa, Modelo modelo)
+	{
 		this.taxaVeiculo = taxaVeiculo;
 		this.taxaKM = taxaKM;
 		this.taxaDia = taxaDia;
@@ -49,11 +50,11 @@ public class Veiculo{
 		this.placa = placa;
 	}
 
-	public String getModelo() {
+	public Modelo getModelo() {
 		return modelo;
 	}
 
-	public void setModelo(String modelo) {
+	public void setModelo(Modelo modelo) {
 		this.modelo = modelo;
 	}
 	

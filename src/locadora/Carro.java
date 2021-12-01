@@ -3,7 +3,7 @@ package locadora;
 
 public class Carro extends Veiculo{
 	
-	public Carro(double taxaVeiculo, double taxaKM, double taxaDia, String placa, String modelo) {
+	public Carro(double taxaVeiculo, double taxaKM, double taxaDia, String placa, Modelo modelo) {
 		super(taxaVeiculo, taxaKM, taxaDia, placa, modelo);
 	}
 

@@ -1,0 +1,15 @@
+package locadora;
+
+public enum Modelo //TODO adicionar mais modelos
+{
+	VOLKSWAGEN_GOL,
+	FIAT_UNO,
+	FIAT_PALIO,
+	VOLKSWAGEN_FOX,
+	FIAT_SIENA,
+	CHEVROLET_CELTA,
+	VOLKSWAGEN_VOYAGE,
+	HYUNDAI_HB20,
+	CHEVROLET_CORSA_SEDAN,
+	CHEVROLET_ONIX;
+}

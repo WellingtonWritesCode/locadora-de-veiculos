@@ -1,15 +1,20 @@
 package locadora;
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.io.FileReader;
-import java.io.FileWriter;
 
 public class Main {
 	public static void printPg(int pagina, ArrayList<Cliente> clientes)
 	{
 		try
 		{
-			
+			for(int i = 0; i < 3; i++)
+			{
+				Cliente j = clientes.get(pagina + i - 1);
+				System.out.println(j.getNome() + ", " + j.getGenero() + "\n"
+								+ "Cpf: " + j.getCpf() + "\n"
+								//TODO adicionar informações do contrato
+								+ "------------------------------------------");
+			}
 		}
 		catch (IndexOutOfBoundsException e)
 		{
@@ -19,16 +24,18 @@ public class Main {
 
     public static void main(String [] args)
     {
-        boolean aberto = false;
+    	//TODO adicionar leitura e escrita de arquivos
+        boolean aberto = true;
         boolean visualizandoBancoDados = false;
         Scanner entrada = new Scanner(System.in);
         int opcao;
         int pagAtual = 1;
-        int totalPag = 3;
-        ArrayList<Cliente> clientes = new ArrayList<Cliente>(5);
-        System.out.println(clientes.get(5));
+        int totalPag;
+        ArrayList<Cliente> clientes = new ArrayList<Cliente>();
+        
         while(aberto)
         {
+        	totalPag = (int)Math.ceil(clientes.size()/3.0);
         	System.out.println("1- Adicionar entrada.\n"
         					 + "2- Remover Entrada.\n"
         					 + "3- Editar entrada.\n"
@@ -57,22 +64,19 @@ public class Main {
         	
         	while(visualizandoBancoDados) 
         	{
-        		System.out.println("Exemplo1\n"
-        						 + "Exemplo2\n"
-        						 + "Exemplo3\n"
-        						 + "Exemplo4\n"
-        						 + "Exemplo5\n"
-        						 + "Pag 1/3\n"
-        						 + "1- Próxima Página\n"
-        						 + "2- Voltar ao menu principal");
-        		opcao = entrada.nextInt();
+        		printPg(pagAtual, clientes);
+        		System.out.println("Pag " + pagAtual + "/" + totalPag);
         		if(totalPag == 1)
         		{
-        			String temp = entrada.next();
+        			System.out.println();
         			visualizandoBancoDados = false;
         		}
         		else if(pagAtual == 1) 
         		{
+        			System.out.println("1- Próxima Página\n"
+   						 			 + "2- Selecionar Página\n"
+   						 			 + "3- Voltar ao menu principal");
+        			opcao = entrada.nextInt();
         			switch(opcao)
         			{
         			case 1:
@@ -91,6 +95,7 @@ public class Main {
         		}
         		else if(pagAtual == totalPag) 
         		{
+        			opcao = entrada.nextInt();
         			switch(opcao)
         			{
         			case 1:
@@ -106,9 +111,11 @@ public class Main {
         				System.out.println("Digite 1 ou 2.");
         				break;
         			}
+        			
         		}
         		else 
         		{
+        			opcao = entrada.nextInt();
         			switch(opcao)
         			{
         			case 1:
