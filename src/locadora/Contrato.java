@@ -1,3 +1,4 @@
+package locadora;
 public class Contrato {
 
 	private Veiculo veiculo;
