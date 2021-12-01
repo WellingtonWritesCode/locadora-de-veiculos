@@ -1,19 +1,39 @@
 package locadora;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.io.File;
 
 public class Main {
+	public static int selecionarPag(int totalPag, Scanner entrada)
+	{
+		boolean entradaValida = false;
+		int temp = 1;
+		System.out.println("Digite a página que deseja ver:\n");
+		do 
+		{
+			try 
+			{
+				temp = entrada.nextInt();
+				if(temp <= totalPag && temp > 0)entradaValida = true;
+			}catch(Exception e)
+			{
+				entradaValida = false;
+			}
+			if(!entradaValida) System.out.println("Valor inválido, digite um número de 0 à " + totalPag);
+		}while(!entradaValida);
+		return temp;
+	}
 	public static void printPg(int pagina, ArrayList<Cliente> clientes)
 	{
 		try
 		{
 			for(int i = 0; i < 3; i++)
 			{
-				Cliente j = clientes.get(pagina + i - 1);
+				Cliente j = clientes.get((pagina-1)*3 + i);
 				System.out.println(j.getNome() + ", " + j.getGenero() + "\n"
-								+ "Cpf: " + j.getCpf() + "\n"
-								//TODO adicionar informações do contrato
-								+ "------------------------------------------");
+								 + "ID: " + j.getID() + "Cpf: " + j.getCpf() + "\n"
+								 //TODO adicionar informações do contrato
+								 + "------------------------------------------");
 			}
 		}
 		catch (IndexOutOfBoundsException e)
@@ -62,6 +82,12 @@ public class Main {
         		break;
         	}
         	
+        	
+        	if(visualizandoBancoDados && clientes.size() == 0)
+        	{
+        		System.out.println("Banco de dados vazio.\n");
+        		visualizandoBancoDados = false;
+        	}
         	while(visualizandoBancoDados) 
         	{
         		printPg(pagAtual, clientes);
@@ -80,52 +106,59 @@ public class Main {
         			switch(opcao)
         			{
         			case 1:
-        				//TODO Próxima Página
+        				pagAtual++;
         				break;
         			case 2:
-        				//TODO Selecionar Página
+        				pagAtual = selecionarPag(totalPag, entrada);
         				break;
         			case 3:
         				visualizandoBancoDados = false;
         				break;
         			default:
-        				System.out.println("Digite 1 ou 2.");
+        				System.out.println("Digite 1, 2 ou 3.");
         				break;
         			}
         		}
         		else if(pagAtual == totalPag) 
         		{
+        			System.out.println("1- Página Anterior\n"
+					 			 	 + "2- Selecionar Página\n"
+					 			 	 + "3- Voltar ao menu principal");
         			opcao = entrada.nextInt();
         			switch(opcao)
         			{
         			case 1:
-        				//TODO Página anterior
+        				pagAtual--;
         				break;
         			case 2:
-        				//TODO Selecionar Página
+        				pagAtual = selecionarPag(totalPag, entrada);
         				break;
         			case 3:
         				visualizandoBancoDados = false;
         				break;
         			default:
-        				System.out.println("Digite 1 ou 2.");
+        				System.out.println("Digite 1, 2 ou 3.");
         				break;
         			}
         			
         		}
         		else 
         		{
+        			System.out.println("1- Próxima Página\n"
+        							 + "2-Página Anterior\n"
+					 			 	 + "3- Selecionar Página\n"
+					 			 	 + "4- Voltar ao menu principal");
         			opcao = entrada.nextInt();
         			switch(opcao)
         			{
         			case 1:
-        				//TODO Próxima página
+        				pagAtual++;
         				break;
         			case 2:
-        				//TODO Página Anterior
+        				pagAtual--;
         				break;
         			case 3:
-        				//TODO Selecionar Página
+        				pagAtual = selecionarPag(totalPag, entrada);
         				break;
         			case 4:
         				visualizandoBancoDados = false;
