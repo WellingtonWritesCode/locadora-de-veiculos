@@ -24,7 +24,7 @@ public class Main {
 	{
 		boolean entradaValida = false;
 		int temp = 1;
-		System.out.println("Digite a página que deseja ver:\n");
+		System.out.println("Digite a pï¿½gina que deseja ver:\n");
 		do 
 		{
 			try 
@@ -35,7 +35,7 @@ public class Main {
 			{
 				entradaValida = false;
 			}
-			if(!entradaValida) System.out.println("Valor inválido, digite um número de 0 à " + totalPag);
+			if(!entradaValida) System.out.println("Valor invï¿½lido, digite um nï¿½mero de 0 ï¿½ " + totalPag);
 		}while(!entradaValida);
 		return temp;
 	}
@@ -52,19 +52,19 @@ public class Main {
 		{
 			for(int i = 0; i < 3; i++)
 			{
-				Cliente j = clientes.get((pagina-1)*3 + i);
-				Contrato k = j.getContrato();
-				Veiculo l = k.getVeiculo();
+				Cliente j = clientes.get((pagina-1)*3 + i);//Acessa o cliente no ArrayList
+				Contrato k = j.getContrato();//Acessa o contrato do cliente
+				Veiculo l = k.getVeiculo();//Acessa o veÃ­culo do contrato
 				System.out.println("Cliente:\n"
 								 + "-------\n"
 								 + j.getNome() + ", " + j.getGenero() + "\n"
 								 + "ID: " + clientes.indexOf(j) + ", Cpf: " + j.getCpf() + "\n"
-								 + "Veículo:\n"
+								 + "Veï¿½culo:\n"
 								 + "-------\n"
 								 + "Placa: " + l.getPlaca() + ", Modelo: " + l.getModelo() + "\n"
 								 + "Taxas:\n"
 								 + "-----\n"
-								 + "Do veículo: " + l.getTaxaVeiculo() + ", Diária: " + l.getTaxaDia() + ", Por km: " + l.getTaxaKm() + "\n"
+								 + "Do veï¿½culo: " + l.getTaxaVeiculo() + ", Diï¿½ria: " + l.getTaxaDia() + ", Por km: " + l.getTaxaKm() + "\n"
 								 + "Totais:\n"
 								 + "------\n"
 								 + "Dias: " + k.getDias() + ", Km inicial: " + k.getKmInicial() + ", Km final: " + k.getKmFinal() + "\n"
@@ -91,13 +91,13 @@ public class Main {
         
         Scanner arquivoClientes = null;
         ArrayList<Cliente> clientes = new ArrayList<Cliente>();
-        try
+        try//Leitura de arquivos jÃ¡ gravados
         {
         	FileReader in = new FileReader("clientes.csv");
         	arquivoClientes = new Scanner(in);
         	while(arquivoClientes.hasNext())
         	{
-        		String[] valores = arquivoClientes.nextLine().split(";");
+        		String[] valores = arquivoClientes.nextLine().split(";");//Coloca os itens da linha lida num vetor
         		clientes.add(new Cliente(valores[0], valores[1], valores[2],
         					 new Contrato(new Veiculo(valores[3], valores[4], valores[5], valores[6], valores[7]),
         					 valores[8], valores[9], valores[10])));
@@ -106,12 +106,12 @@ public class Main {
         catch(java.io.FileNotFoundException e) {}
         finally
         {
-        	if(arquivoClientes!=null)arquivoClientes.close();
+        	if(arquivoClientes!=null)arquivoClientes.close();//Caso o scanner nÃ£o seja iniciado
         }
         
         while(aberto)
         {
-        	totalPag = (int)Math.ceil(clientes.size()/3.0);
+        	totalPag = (int)Math.ceil(clientes.size()/3.0);//Calcula o nÃºmero de pÃ¡ginas total; 3 itens por pÃ¡gina
         	System.out.println("1- Adicionar entrada.\n"
         					 + "2- Remover entrada.\n"
         					 + "3- Visualizar banco de dados.\n"
@@ -150,7 +150,7 @@ public class Main {
     				}
     				
     				System.out.println("Cpf (-1 p/ cancelar):");
-    				do
+    				do//LÃ³gica defensiva cpf
         			{
         				try
         				{
@@ -165,11 +165,11 @@ public class Main {
         					adicionando = false;
         					break;
         				}
-        				valido = cpf >= 10000000000f && cpf <= 99999999999f;
-        				if(!valido) System.out.println("Insira um cpf válido.");
+        				valido = cpf >= 10000000000f && cpf <= 99999999999f;//LÃ³gica para validar cpf; Por default java entende valores como int ou double por isso Ã© necessÃ¡rio usa 'f' ou 'F' no final
+        				if(!valido) System.out.println("Insira um cpf vï¿½lido.");
         			}while(!valido);
         			if(!adicionando)break;
-        			System.out.println("Gênero (. p/ cancelar): ");
+        			System.out.println("Gï¿½nero (. p/ cancelar): ");//LÃ³gica defensiva gÃªnero
         			genero = entrada.nextLine().charAt(0);
         			if(genero == '.')
     				{
@@ -177,11 +177,11 @@ public class Main {
     					break;
     				}
         			
-        			System.out.println("Veículo\n"
+        			System.out.println("Veï¿½culo\n"
         							  +"Modelo (-1 p/ cancelar):");
         			for(int i = 0; i < Modelo.values().length; i++)
     				{
-    					System.out.println((i+1) + "- " + Modelo.values()[i]);
+    					System.out.println((i+1) + "- " + Modelo.values()[i]);//Printa todos os modelos disponÃ­veis
     				}
         			do
         			{
@@ -208,24 +208,24 @@ public class Main {
         			}while(!valido);
         			if(!adicionando)break;
         			
-        			Pattern patternPlaca = Pattern.compile("[A-Z][A-Z][A-Z][0-9][A-Z][0-9][0-9]|[A-Z][A-Z][A-Z][0-9][0-9][0-9][0-9]");
+        			Pattern patternPlaca = Pattern.compile("[A-Z][A-Z][A-Z][0-9][A-Z][0-9][0-9]|[A-Z][A-Z][A-Z][0-9][0-9][0-9][0-9]");//padrÃ£o da placa
         			Matcher matcher;
         			System.out.println("Placa (-1 p/ cancelar):");
         			do
         			{
         				placa = entrada.nextLine();
-        				matcher = patternPlaca.matcher(placa);
+        				matcher = patternPlaca.matcher(placa);//Reconhecendo o padrÃ£o da placa
         				if(placa.equals("-1"))
         				{
         					adicionando = false;
         					break;
         				}
-        				valido = matcher.matches();
-        				if(!valido)System.out.println("Insira uma placa válida (ABC1D23 ou ABC1234)");
+        				valido = matcher.matches();//Verifica se Ã© um padrÃ£o vÃ¡lido
+        				if(!valido)System.out.println("Insira uma placa vï¿½lida (ABC1D23 ou ABC1234)");
         			}while(!valido);
         			if(!adicionando)break;
         			
-        			System.out.println("Taxa do veículo (-1 p/ cancelar):");
+        			System.out.println("Taxa do veï¿½culo (-1 p/ cancelar):");
         			do
         			{
         				try
@@ -241,12 +241,12 @@ public class Main {
         					adicionando = false;
         					break;
         				}
-        				valido = taxaVeiculo > 0;
+        				valido = taxaVeiculo > 0;//Logica de validaÃ§Ã£o
         				if(!valido) System.out.println("Insira um valor acima de 0.");
         			}while(!valido);
         			if(!adicionando)break;
         			
-        			System.out.println("Taxa diária (-1 p/ cancelar):");
+        			System.out.println("Taxa diï¿½ria (-1 p/ cancelar):");
         			do
         			{
         				try
@@ -262,7 +262,7 @@ public class Main {
         					adicionando = false;
         					break;
         				}
-        				valido = taxaDia > 0;
+        				valido = taxaDia > 0;//Logica de validaÃ§Ã£o
         				if(!valido) System.out.println("Insira um valor acima de 0.");
         			}while(!valido);
         			if(!adicionando)break;
@@ -327,7 +327,7 @@ public class Main {
         					break;
         				}
         				valido = kmInicial >= 0;
-        				if(!valido) System.out.println("Insira um número real positivo.");
+        				if(!valido) System.out.println("Insira um nï¿½mero real positivo.");
         			}while(!valido);
         			if(!adicionando)break;
         			
@@ -348,7 +348,7 @@ public class Main {
         					break;
         				}
         				valido = kmFinal > kmInicial;
-        				if(!valido) System.out.println("Insira um número real maior que a quilometragem inicial.");
+        				if(!valido) System.out.println("Insira um nï¿½mero real maior que a quilometragem inicial.");
         			}while(!valido);
         			if(!adicionando)break;
         			
@@ -356,7 +356,7 @@ public class Main {
         						 new Contrato(new Veiculo(placa, taxaDia, taxaKm, taxaVeiculo, modelo),
         						 dias, kmInicial, kmFinal)));
         			System.out.println("Adicionar outro cliente?(s/n)");
-        			adicionando = entrada.nextLine().equalsIgnoreCase("s");
+        			adicionando = entrada.nextLine().equalsIgnoreCase("s");//opÃ§Ã£o de repetir a operaÃ§Ã£o ou nÃ£o
         		}
         		break;
 //-------------------------------------------------------------------------------------------------------------------------------
@@ -369,7 +369,7 @@ public class Main {
             	{
             		removendo = true;
             	}
-        		while(removendo)
+        		while(removendo)//Remover itens cadastrados ou lidos
         		{
         			System.out.println("Digite o ID do cliente que deseja remover (-1 p/ cancelar):");
         			int removeID = -2;
@@ -380,7 +380,7 @@ public class Main {
 						} catch (NumberFormatException e) {
 							removeID = -2;
 						}
-        				if(removeID < -1 || removeID >= clientes.size()) System.out.println("Digite um ID válido.");
+        				if(removeID < -1 || removeID >= clientes.size()) System.out.println("Digite um ID vï¿½lido.");
         			}while(removeID < -1);
         			removendo = removeID != -1;
         			if(!removendo) break;
@@ -408,10 +408,10 @@ public class Main {
             			System.out.println();
             			visualizandoBancoDados = false;
             		}
-            		else if(pagAtual == 1) 
+            		else if(pagAtual == 1) //Caso haja mais de uma pÃ¡gina de itens cadastrados; Menu para percorrer
             		{
-            			System.out.println("1- Próxima Página\n"
-       						 			 + "2- Selecionar Página\n"
+            			System.out.println("1- Prï¿½xima Pï¿½gina\n"
+       						 			 + "2- Selecionar Pï¿½gina\n"
        						 			 + "3- Voltar ao menu principal");
             			try {
 							opcao = Integer.parseInt(entrada.nextLine());
@@ -437,8 +437,8 @@ public class Main {
             		}
             		else if(pagAtual == totalPag) 
             		{
-            			System.out.println("1- Página Anterior\n"
-    					 			 	 + "2- Selecionar Página\n"
+            			System.out.println("1- Pï¿½gina Anterior\n"
+    					 			 	 + "2- Selecionar Pï¿½gina\n"
     					 			 	 + "3- Voltar ao menu principal");
             			try {
 							opcao = Integer.parseInt(entrada.nextLine());
@@ -464,9 +464,9 @@ public class Main {
             		}
             		else 
             		{
-            			System.out.println("1- Próxima Página\n"
-            							 + "2-Página Anterior\n"
-    					 			 	 + "3- Selecionar Página\n"
+            			System.out.println("1- Prï¿½xima Pï¿½gina\n"
+            							 + "2-Pï¿½gina Anterior\n"
+    					 			 	 + "3- Selecionar Pï¿½gina\n"
     					 			 	 + "4- Voltar ao menu principal");
             			try {
 							opcao = Integer.parseInt(entrada.nextLine());
@@ -498,7 +498,7 @@ public class Main {
 //-------------------------------------------------------------------------------------------------------------------------------
         	case 4:
         		PrintWriter arquivoClientesW = null;
-        		try 
+        		try //Sair e salvar os dados cadastrados ou alterados
         		{
 	        		FileWriter out = new FileWriter("clientes.csv");
 	        		arquivoClientesW = new PrintWriter(out);
@@ -516,7 +516,7 @@ public class Main {
         			aberto = false;
         		}
         		break;
-        	default:
+        	default://Defesa contra inputs inadequados
         		System.out.println("Digite um valor inteiro de 1 a 4");
         		break;
         	}
