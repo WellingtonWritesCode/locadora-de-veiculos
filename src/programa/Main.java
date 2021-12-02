@@ -69,8 +69,8 @@ public class Main {
     public static void main(String [] args)
     {
         boolean aberto = true;
-        boolean adicionando;
-        boolean removendo;
+        boolean adicionando = false;
+        boolean removendo = false;
         boolean visualizandoBancoDados = false;
         Scanner entrada = new Scanner(System.in);
         int opcao;
@@ -349,7 +349,14 @@ public class Main {
         		break;
 //-------------------------------------------------------------------------------------------------------------------------------
         	case 2:
-        		removendo = true;
+        		if(clientes.size() == 0)
+            	{
+            		System.out.println("Banco de dados vazio.\n");
+            	}
+            	else
+            	{
+            		removendo = true;
+            	}
         		while(removendo)
         		{
         			System.out.println("Digite o ID do cliente que deseja remover (-1 p/ cancelar):");
