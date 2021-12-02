@@ -2,20 +2,26 @@ package locadora;
 
 public class Veiculo
 {
-	
 	private double taxaVeiculo;
-	private double taxaKM;
+	private double taxaKm;
 	private double taxaDia;
 	private String placa;
 	private Modelo modelo;
 	
-	public Veiculo(double taxaVeiculo, double taxaKM, double taxaDia, String placa, Modelo modelo)
-	{
+	public Veiculo(double taxaVeiculo, double taxaKm, double taxaDia, String placa, Modelo modelo) {
 		this.taxaVeiculo = taxaVeiculo;
-		this.taxaKM = taxaKM;
+		this.taxaKm = taxaKm;
 		this.taxaDia = taxaDia;
 		this.placa = placa;
 		this.modelo = modelo;
+	}
+	
+	public Veiculo(String taxaVeiculo, String taxaKm, String taxaDia, String placa, String modelo) {
+		this.taxaVeiculo = Double.parseDouble(taxaVeiculo);
+		this.taxaKm = Double.parseDouble(taxaKm);
+		this.taxaDia = Double.parseDouble(taxaDia);
+		this.placa = placa;
+		this.modelo = Modelo.valueOf(modelo);
 	}
 
 	public double getTaxaVeiculo() {
@@ -26,12 +32,12 @@ public class Veiculo
 		this.taxaVeiculo = taxaVeiculo;
 	}
 
-	public double getTaxaKM() {
-		return taxaKM;
+	public double getTaxaKm() {
+		return taxaKm;
 	}
 
-	public void setTaxaKM(double taxaKM) {
-		this.taxaKM = taxaKM;
+	public void setTaxaKm(double taxaKm) {
+		this.taxaKm = taxaKm;
 	}
 
 	public double getTaxaDia() {
@@ -59,6 +65,6 @@ public class Veiculo
 	}
 	
 	public String toString() {
-		return String.format("Modelo: %s%nPlaca: %s%nTaxa fixa do Veículo: %.2f%nTaxa diária: %.2f%nTaxa por quilômetro: %.2f%n",modelo,placa,taxaVeiculo, taxaDia, taxaKM);
+		return this.placa +";"+ this.taxaDia +";"+ this.taxaKm +";"+ this.taxaVeiculo +";"+ this.modelo;
 	}	
 }

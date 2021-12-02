@@ -12,6 +12,13 @@ public class Contrato {
 		this.kmInicial = kmInicial;
 		this.kmFinal = kmFinal;
 	}
+	
+	public Contrato(Veiculo veiculo, String dias, String kmInicial, String kmFinal) {
+		this.veiculo = veiculo;
+		this.dias = Integer.parseInt(dias);
+		this.kmInicial = Double.parseDouble(kmInicial);
+		this.kmFinal = Double.parseDouble(kmFinal);
+	}
 
 	public Veiculo getVeiculo() {
 		return veiculo;
@@ -45,8 +52,8 @@ public class Contrato {
 		this.kmFinal = kmFinal;
 	}
 
-	public double valorKM() {
-		return (kmFinal - kmInicial) * veiculo.getTaxaKM();
+	public double valorKm() {
+		return (kmFinal - kmInicial) * veiculo.getTaxaKm();
 	}
 
 	public double custoDias() {
@@ -54,11 +61,10 @@ public class Contrato {
 	}
 
 	public double custoTotal() {
-		return custoDias() + veiculo.getTaxaVeiculo() + valorKM();
+		return custoDias() + veiculo.getTaxaVeiculo() + valorKm();
 	}
 
 	public String toString() {
-		return String.format("Dias alugados: %d%nQuilometros rodados: %.2f%nValor total a ser pago: %.2f%n", dias,
-				(kmFinal - kmInicial), custoTotal());
+		return this.veiculo.toString() +";"+ this.dias +";"+ this.kmInicial +";"+ this.kmFinal;
 	}
 }
