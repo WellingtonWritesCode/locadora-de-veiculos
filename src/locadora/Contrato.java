@@ -52,15 +52,15 @@ public class Contrato {
 		this.kmFinal = kmFinal;
 	}
 
-	public double valorKm() {
+	public double valorKm() {//Calcula o valor dos km percorridos
 		return (kmFinal - kmInicial) * veiculo.getTaxaKm();
 	}
 
-	public double custoDias() {
+	public double custoDias() {//Calcula o custo dos dias alugados
 		return dias * veiculo.getTaxaDia();
 	}
 
-	public double custoTotal() {
+	public double custoTotal() {//Calcular o valor total do contrato
 		return custoDias() + veiculo.getTaxaVeiculo() + valorKm();
 	}
 
