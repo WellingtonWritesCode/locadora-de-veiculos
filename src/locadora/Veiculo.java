@@ -2,25 +2,25 @@ package locadora;
 
 public class Veiculo
 {
-	private double taxaVeiculo;
-	private double taxaKm;
-	private double taxaDia;
 	private String placa;
+	private double taxaDia;
+	private double taxaKm;
+	private double taxaVeiculo;
 	private Modelo modelo;
 	
-	public Veiculo(double taxaVeiculo, double taxaKm, double taxaDia, String placa, Modelo modelo) {
-		this.taxaVeiculo = taxaVeiculo;
-		this.taxaKm = taxaKm;
-		this.taxaDia = taxaDia;
+	public Veiculo(String placa, double taxaDia, double taxaKm, double taxaVeiculo, Modelo modelo) {
 		this.placa = placa;
+		this.taxaDia = taxaDia;
+		this.taxaKm = taxaKm;
+		this.taxaVeiculo = taxaVeiculo;
 		this.modelo = modelo;
 	}
 	
-	public Veiculo(String taxaVeiculo, String taxaKm, String taxaDia, String placa, String modelo) {
-		this.taxaVeiculo = Double.parseDouble(taxaVeiculo);
-		this.taxaKm = Double.parseDouble(taxaKm);
-		this.taxaDia = Double.parseDouble(taxaDia);
+	public Veiculo(String placa, String taxaDia, String taxaKm, String taxaVeiculo, String modelo) {
 		this.placa = placa;
+		this.taxaDia = Double.parseDouble(taxaDia);
+		this.taxaKm = Double.parseDouble(taxaKm);
+		this.taxaVeiculo = Double.parseDouble(taxaVeiculo);
 		this.modelo = Modelo.valueOf(modelo);
 	}
 

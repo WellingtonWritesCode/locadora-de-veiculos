@@ -2,34 +2,23 @@ package locadora;
 
 public class Cliente 
 {
-	private int ID;
 	private String nome;
 	private String cpf;
 	private char genero;
 	private Contrato contrato;
 	
-	public Cliente(int ID, String nome, float cpf, char genero, Contrato contrato) {
-		this.ID = ID;
+	public Cliente(String nome, float cpf, char genero, Contrato contrato) {
 		this.nome = nome;
 		this.cpf = String.format("%.0f", cpf);
 		this.genero = genero;
 		this.contrato = contrato;
 	}
 	
-	public Cliente(String ID, String nome, String cpf, String genero, Contrato contrato) {
-		this.ID = Integer.parseInt(ID);
+	public Cliente(String nome, String cpf, String genero, Contrato contrato) {
 		this.nome = nome;
 		this.cpf = cpf;
 		this.genero = genero.charAt(0);
 		this.contrato = contrato;
-	}
-	
-	public int getID() {
-		return ID;
-	}
-
-	public void setID(int ID) {
-		this.ID = ID;
 	}
 
 	public String getNome() {
@@ -65,6 +54,6 @@ public class Cliente
 	}
 	
 	public String toString() {
-		return this.ID +";"+ this.nome +";"+ this.cpf +";"+ this.genero +";"+ this.contrato.toString();
+		return this.nome +";"+ this.cpf +";"+ this.genero +";"+ this.contrato.toString();
 	}
 }
