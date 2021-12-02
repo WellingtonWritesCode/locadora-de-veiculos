@@ -7,6 +7,9 @@ public class Cliente
 	private char genero;
 	private Contrato contrato;
 	
+	/**
+	 * Construtor da classe
+	 */
 	public Cliente(String nome, float cpf, char genero, Contrato contrato) {
 		this.nome = nome;
 		this.cpf = String.format("%.0f", cpf);
@@ -14,6 +17,10 @@ public class Cliente
 		this.contrato = contrato;
 	}
 	
+	/**
+	 * Construtor da classe usando somente Strings, usado para facilitar o carregamento de dados.
+	 * @see locadora.Contrato#Contrato(Veiculo, String, String, String)
+	 */
 	public Cliente(String nome, String cpf, String genero, Contrato contrato) {
 		this.nome = nome;
 		this.cpf = cpf;
@@ -53,6 +60,9 @@ public class Cliente
 		this.contrato = contrato;
 	}
 	
+	/**
+	 * @return String com todos os dados do objeto
+	 */
 	public String toString() {
 		return this.nome +";"+ this.cpf +";"+ this.genero +";"+ this.contrato.toString();
 	}

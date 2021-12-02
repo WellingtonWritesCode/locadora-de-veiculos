@@ -16,6 +16,10 @@ public class Veiculo
 		this.modelo = modelo;
 	}
 	
+	/**
+	 * Construtor da classe usando somente Strings, usado em conjunção ao
+	 * {@link locadora.Contrato#Contrato(Veiculo, String, String, String) Contrato(Veiculo, String, String, String)}
+	 */
 	public Veiculo(String placa, String taxaDia, String taxaKm, String taxaVeiculo, String modelo) {
 		this.placa = placa;
 		this.taxaDia = Double.parseDouble(taxaDia);
@@ -64,6 +68,9 @@ public class Veiculo
 		this.modelo = modelo;
 	}
 	
+	/**
+	 * @return String com todos os dados do objeto
+	 */
 	public String toString() {
 		return this.placa +";"+ this.taxaDia +";"+ this.taxaKm +";"+ this.taxaVeiculo +";"+ this.modelo;
 	}	

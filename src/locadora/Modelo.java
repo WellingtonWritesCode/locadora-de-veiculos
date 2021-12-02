@@ -1,5 +1,8 @@
 package locadora;
 
+/**
+ * Modelos que podem ser utilizados
+ */
 public enum Modelo
 {
 	VOLKSWAGEN_GOL,

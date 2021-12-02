@@ -14,6 +14,12 @@ import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 
 public class Main {
+	/**
+	 * Checa se o input do usuário for uma página válida
+	 * @param totalPag número total de páginas
+	 * @param entrada Scanner com o input do usuário
+	 * @return página selecionada
+	 */
 	public static int selecionarPag(int totalPag, Scanner entrada)
 	{
 		boolean entradaValida = false;
@@ -33,7 +39,13 @@ public class Main {
 		}while(!entradaValida);
 		return temp;
 	}
-	
+	/**
+	 * Imprime os valores da lista de clientes em páginas.
+	 * <p>
+	 * Cada página possui no máximo 3 clientes, com exceção da última.
+	 * @param pagina página a ser imprimida
+	 * @param clientes ArrayList de clientes
+	 */
 	public static void printPg(int pagina, ArrayList<Cliente> clientes)
 	{
 		try
@@ -56,7 +68,7 @@ public class Main {
 								 + "Totais:\n"
 								 + "------\n"
 								 + "Dias: " + k.getDias() + ", Km inicial: " + k.getKmInicial() + ", Km final: " + k.getKmFinal() + "\n"
-						 		 + "Valor dias: " + k.custoDias() + ", Valor total: " + k.custoTotal() + "\n"
+						 		 + "Valor total: " + k.custoTotal() + "\n"
 								 + "------------------------------------------");
 			}
 		}

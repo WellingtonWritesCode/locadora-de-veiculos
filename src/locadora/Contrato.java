@@ -1,4 +1,5 @@
 package locadora;
+
 public class Contrato {
 
 	private Veiculo veiculo;
@@ -6,6 +7,9 @@ public class Contrato {
 	private double kmInicial;
 	private double kmFinal;
 
+	/**
+	 * Construtor da classe
+	 */
 	public Contrato(Veiculo veiculo, int dias, double kmInicial, double kmFinal) {
 		this.veiculo = veiculo;
 		this.dias = dias;
@@ -13,6 +17,11 @@ public class Contrato {
 		this.kmFinal = kmFinal;
 	}
 	
+	/**
+	 * Construtor da classe usando somente Strings, usado em conjunção ao
+	 * {@link locadora.Cliente#Cliente(String, String, String, Contrato) Cliente(String, String, String, Contrato)}
+	 * @see locadora.Veiculo#Veiculo(String, String, String, String, String)
+	 */
 	public Contrato(Veiculo veiculo, String dias, String kmInicial, String kmFinal) {
 		this.veiculo = veiculo;
 		this.dias = Integer.parseInt(dias);
@@ -52,18 +61,24 @@ public class Contrato {
 		this.kmFinal = kmFinal;
 	}
 
-	public double valorKm() {
+	private double valorKm() {
 		return (kmFinal - kmInicial) * veiculo.getTaxaKm();
 	}
 
-	public double custoDias() {
+	private double custoDias() {
 		return dias * veiculo.getTaxaDia();
 	}
 
+	/**
+	 * @return total a ser pago
+	 */
 	public double custoTotal() {
 		return custoDias() + veiculo.getTaxaVeiculo() + valorKm();
 	}
-
+	
+	/**
+	 * @return String com todos os dados do objeto
+	 */
 	public String toString() {
 		return this.veiculo.toString() +";"+ this.dias +";"+ this.kmInicial +";"+ this.kmFinal;
 	}
