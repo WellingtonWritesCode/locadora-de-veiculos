@@ -32,6 +32,7 @@ public class Main {
 		}while(!entradaValida);
 		return temp;
 	}
+	
 	public static void printPg(int pagina, ArrayList<Cliente> clientes)
 	{
 		try
@@ -71,7 +72,7 @@ public class Main {
         int opcao;
         int pagAtual = 1;
         int totalPag;
-        //TODO carregar lista de um arquivo, se existir, se não, criar arquivo
+        
         Scanner arquivoClientes = null;
         ArrayList<Cliente> clientes = new ArrayList<Cliente>();
         try
