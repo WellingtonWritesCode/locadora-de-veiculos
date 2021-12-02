@@ -381,7 +381,7 @@ public class Main {
 							removeID = -2;
 						}
         				if(removeID < -1 || removeID >= clientes.size()) System.out.println("Digite um ID v�lido.");
-        			}while(removeID < -1);
+        			}while(removeID < -1 || removeID >= clientes.size());
         			removendo = removeID != -1;
         			if(!removendo) break;
         			else clientes.remove(removeID);
